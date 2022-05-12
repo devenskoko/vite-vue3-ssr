@@ -1,0 +1,10 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "i18n-ally.localesPaths": ["locales"],
+  "i18n-ally.keystyle": "flat",
+  "i18n-ally.sourceLanguage": "zh-CN"
+}
