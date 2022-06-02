@@ -7,7 +7,7 @@ import Components from "unplugin-vue-components/vite";
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import {
-  ElementPlusResolver,
+  NaiveUiResolver,
   VueUseComponentsResolver,
 } from "unplugin-vue-components/resolvers";
 import WindiCSS from "vite-plugin-windicss";
@@ -43,7 +43,7 @@ export default (env: ConfigEnv) => {
         filepath: "./.eslintrc-auto-import.json", // Default `./.eslintrc-auto-import.json`
         globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
       },
-      resolvers: [ElementPlusResolver()],
+      resolvers: [],
     }),
     Components({
       dts: "./src/components.d.ts",
@@ -52,7 +52,7 @@ export default (env: ConfigEnv) => {
       // imports 指定组件所在位置，默认为 src/components; 有需要也可以加上 view 目录
       dirs: ["src/components/"],
       resolvers: [
-        ElementPlusResolver(),
+        NaiveUiResolver(),
         IconsResolver(),
         VueUseComponentsResolver(),
       ],
@@ -67,7 +67,7 @@ export default (env: ConfigEnv) => {
       },
     }),
     VueI18n({
-      include: [resolve(__dirname, "../locales/**")],
+      include: [resolve(__dirname, "../locales/**/**")],
     }),
     WindiCSS({
       safelist: defaultClasses,

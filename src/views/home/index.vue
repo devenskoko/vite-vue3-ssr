@@ -7,36 +7,26 @@
     </div>
     <div class="text-center text-md">
       <h1 class="font-serif font-bold text-4xl mb-8">
-        {{ t("hello") }} , {{ t("welcome to") }} Vitecamp
+        {{ t("home.hello") }} , {{ t("home.welcome") }} Vitecamp
       </h1>
-      <p class="mb-10">
-        <strong>Vitecamp</strong>
-        {{ t("includes features") }}
-      </p>
       <p class="mb-10">
         <template v-for="(item, index) in featureList" :key="index">
           <a :href="item.href" target="_blank">{{ item.name }}</a>
           <template v-if="!item.isEnd"> | </template>
         </template>
       </p>
-      <div>
-        {{ t("before coding") }} , {{ t("setup ide") }}
-        <strong>VSCode</strong> + <strong>Volar</strong>
-      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useMessage } from "naive-ui";
 import vitecamp from "@/assets/svg/vitecamp.svg?component";
 
+const message = useMessage();
 const { t } = useI18n();
-ElMessage.info({ message: "welcome", duration: 1 });
-ElNotification({
-  title: "Issue",
-  message:
-    "If you encounter problems in using the template, please raise them in the issue",
-  duration: 0,
+message.info("I don't know why nobody told you how to unfold your love", {
+  keepAliveOnHover: true,
 });
 
 const featureList = [
@@ -112,8 +102,4 @@ const featureList = [
 ];
 </script>
 
-<style lang="scss" scoped>
-a {
-  @apply text-sky-400 hover:(text-sky-600) transition-all ease-out duration-100;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,13 +1,7 @@
 <br>
 
 <p align='center'>
-<a href="https://vitecamp.netlify.app/">在线 Demo</a>
-</p>
-
-<br>
-
-<p align='center'>
-<a href="https://github.com/nekobc1998923/vitecamp/blob/master/README.md">English</a> | <b>简体中文</b>
+<a href="https://github.com/devenskoko/vite-vue3/blob/main/README.md">English</a> | <b>简体中文</b>
 </p>
 
 <br>
@@ -16,7 +10,7 @@
 
 - ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite) - 快！
 - 💪 [Typescript](https://www.typescriptlang.org/) - 当然！必不可少
-- 🎉 [Element Plus 开箱即用](https://github.com/element-plus/element-plus) - 基于 Vue.js 3 的强大 UI 库
+- 🎉 [Naive UI 开箱即用](https://www.naiveui.com/zh-CN/light) - 基于 Vue.js 3 的强大 UI 库
 - 🔥 [Axios 配置和封装](https://github.com/axios/axios) - 基于 Promise 的 HTTP 请求库
 - 💡 [Vue Router 4](https://router.vuejs.org/zh/) - Vuejs 的官方路由
 - 📦 [组件自动按需加载](https://github.com/antfu/unplugin-vue-components) - 自动按需注册组件, 无需 import
@@ -57,7 +51,6 @@
   - [prism-theme-vars](https://github.com/antfu/prism-theme-vars) - 利用 CSS 变量自定义 Prism.js 的主题
   - [markdown-it-link-attributes](https://github.com/crookedneighbor/markdown-it-link-attributes) - 统一设置 Markdown 里的超链接跳转方式
 - [Vue I18n](https://github.com/intlify/vue-i18n-next) - 国际化
-  - [vite-plugin-vue-i18n](https://github.com/intlify/vite-plugin-vue-i18n) - Vue I18n 的 Vite 插件
 - [vite-plugin-fonts](https://github.com/stafyniaksacha/vite-plugin-fonts) - Vite 的字体加载器
 - [VueUse](https://github.com/antfu/vueuse) - 实用的 Composition API 工具合集
 - [vite-svg-loader](https://github.com/jpkleemans/vite-svg-loader) - 支持以 组件形式使用 SVG 图片
@@ -81,18 +74,6 @@
   - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - 编码风格检查
 
 ## 现在可以试试!
-
-### GitHub 模板
-
-[使用这个模板创建仓库](https://github.com/nekobc1998923/vitecamp/generate).
-
-### 克隆到本地
-
-```bash
-git clone https://github.com/nekobc1998923/vitecamp.git my-vitecamp-app
-cd my-vitecamp-app
-npm i
-```
 
 ## 清单
 

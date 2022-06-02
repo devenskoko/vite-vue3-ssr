@@ -1,8 +1,8 @@
 import { defineConfig, loadEnv } from "vite";
 import { resolve } from "path";
-import presets from "./presets/presets";
 import viteCompression from "vite-plugin-compression";
 import { manualChunksPlugin } from "vite-plugin-webpackchunkname";
+import presets from "./presets/presets";
 // https://vitejs.dev/config/
 export default defineConfig((env) => {
   // env 环境变量
@@ -26,14 +26,14 @@ export default defineConfig((env) => {
       cors: true, // 跨域设置允许
       strictPort: true, // 如果端口已占用直接退出
       // 接口代理
-      proxy: {
-        "/api": {
-          // 本地 8000 前端代码的接口 代理到 8888 的服务端口
-          target: "http://localhost:8888/",
-          changeOrigin: true, // 允许跨域
-          rewrite: (path) => path.replace("/api/", "/"),
-        },
-      },
+      // proxy: {
+      //   "/api": {
+      //     // 本地 8000 前端代码的接口 代理到 8888 的服务端口
+      //     target: "http://localhost:8888/",
+      //     changeOrigin: true, // 允许跨域
+      //     rewrite: (path) => path.replace("/api/", "/"),
+      //   },
+      // },
     },
     build: {
       brotliSize: false,

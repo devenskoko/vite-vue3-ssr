@@ -1,14 +1,26 @@
 <script setup lang="ts">
-import zhCn from "element-plus/lib/locale/lang/zh-cn";
+import { enUS, dateEnUS, eo, dateEo } from "naive-ui";
+import { useAppStore } from "@/store/app";
 
-const locale = zhCn;
+const appStore = useAppStore();
+if (!localStorage.locale) {
+  localStorage.locale = "en";
+  appStore.toggleLocale("en");
+}
+const locale = localStorage.locale === "en" ? enUS : eo;
+const dateLocale = localStorage.locale === "en" ? dateEnUS : dateEo;
 </script>
 
 <template>
   <div class="m-5">
-    <el-config-provider :locale="locale">
-      <router-view></router-view>
-    </el-config-provider>
+    <n-config-provider
+      :locale="locale"
+      :date-locale="dateLocale"
+      preflight-style-disabled
+    >
+      <n-message-provider>
+        <router-view></router-view>
+      </n-message-provider>
+    </n-config-provider>
   </div>
-  <TheFooter></TheFooter>
 </template>

@@ -1,20 +1,21 @@
 <template>
-  <el-row>
-    <el-col>
-      <el-result icon="warning" title="页面无权限" sub-title="请联系管理员申请权限">
-        <template #extra>
-          <el-button type="primary" @click="goBack">Back</el-button>
-        </template>
-      </el-result>
-    </el-col>
-  </el-row>
+  <n-result
+    status="403"
+    size="huge"
+    title="403 禁止访问"
+    description="总有些门是对你关闭的"
+  >
+    <template #footer>
+      <n-button>放轻松</n-button>
+    </template>
+  </n-result>
 </template>
 
 <script setup lang="ts">
 const router = useRouter();
 const goBack = () => {
   router.push({
-    name: 'home',
+    name: "home",
   });
 };
 </script>

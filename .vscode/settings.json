@@ -6,5 +6,8 @@
   "editor.formatOnSave": true,
   "i18n-ally.localesPaths": ["locales"],
   "i18n-ally.keystyle": "flat",
-  "i18n-ally.sourceLanguage": "zh-CN"
+  "i18n-ally.namespace": true,
+  "i18n-ally.pathMatcher": "{locale}/{namespaces}.{ext}",
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.extract.targetPickingStrategy": "file-previous"
 }

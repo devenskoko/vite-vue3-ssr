@@ -1,20 +1,16 @@
 <template>
-  <el-row>
-    <el-col>
-      <el-result icon="warning" title="页面未找到" sub-title="请检查路径后重试或返回首页">
-        <template #extra>
-          <el-button type="primary" @click="goBack">Back</el-button>
-        </template>
-      </el-result>
-    </el-col>
-  </el-row>
+  <n-result status="404" title="404 资源不存在" description="生活总归带点荒谬">
+    <template #footer>
+      <n-button>找点乐子吧</n-button>
+    </template>
+  </n-result>
 </template>
 
 <script setup lang="ts">
 const router = useRouter();
 const goBack = () => {
   router.push({
-    name: 'home',
+    name: "home",
   });
 };
 </script>
