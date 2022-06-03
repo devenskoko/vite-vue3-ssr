@@ -1,5 +1,5 @@
 const modulesFiles = import.meta.globEager("/locales/**/*.json");
-const messages: any = {};
+const messages: Record<string, any> = {};
 // eslint-disable-next-line no-restricted-syntax
 for (const key in modulesFiles) {
   if ({}.hasOwnProperty.call(modulesFiles, key)) {

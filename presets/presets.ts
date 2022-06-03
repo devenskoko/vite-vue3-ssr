@@ -13,13 +13,9 @@ import {
 import WindiCSS from "vite-plugin-windicss";
 import Markdown from "vite-plugin-md";
 import Prism from "markdown-it-prism";
-import OptimizationPersist from "vite-plugin-optimize-persist";
-import PkgConfig from "vite-plugin-package-config";
 import ViteFonts from "vite-plugin-fonts";
-import VueI18n from "@intlify/vite-plugin-vue-i18n";
 import LinkAttributes from "markdown-it-link-attributes";
 import { ConfigEnv } from "vite";
-import { resolve } from "path";
 
 const defaultClasses = "prose prose-sm m-auto text-left";
 
@@ -43,7 +39,7 @@ export default (env: ConfigEnv) => {
         filepath: "./.eslintrc-auto-import.json", // Default `./.eslintrc-auto-import.json`
         globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
       },
-      resolvers: [],
+      resolvers: [NaiveUiResolver()],
     }),
     Components({
       dts: "./src/components.d.ts",
@@ -66,9 +62,6 @@ export default (env: ConfigEnv) => {
         families: ["Open Sans", "Montserrat", "Fira Sans"],
       },
     }),
-    VueI18n({
-      include: [resolve(__dirname, "../locales/**/**")],
-    }),
     WindiCSS({
       safelist: defaultClasses,
     }),
@@ -88,7 +81,5 @@ export default (env: ConfigEnv) => {
         });
       },
     }),
-    PkgConfig(),
-    OptimizationPersist(),
   ];
 };

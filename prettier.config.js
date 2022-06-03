@@ -10,16 +10,16 @@ module.exports = {
   bracketSpacing: true,
 
   // 箭头函数的参数无论有几个，都要括号包裹
-  arrowParens: 'always',
+  arrowParens: "always",
 
   // 换行符的使用
-  endOfLine: 'lf',
+  endOfLine: "lf",
 
   // 是否用单引号， 项目中全部使用单引号
   singleQuote: true,
 
   // 对象或者数组的最后一个元素后面是否要加逗号
-  trailingComma: 'all',
+  trailingComma: "all",
 
   // 是否加分号，项目中统一加分号
   semi: true,

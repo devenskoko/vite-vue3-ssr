@@ -12,7 +12,7 @@ import "@/assets/styles/index.scss";
 import messages from "./i18n-message";
 
 const i18n = createI18n({
-  locale: "zh-CN",
+  locale: localStorage.locale || "zh-CN",
   fallbackLocale: "en",
   messages,
 });

@@ -11,8 +11,8 @@ const theme = defineStore({
   },
   // 等同于vuex的getter
   getters: {
-    getThemeType: (state: { themeType: any }) => state.themeType,
-    getThemeColor: (state: { themeColor: any }) => state.themeColor,
+    getThemeType: (state: { themeType: string }) => state.themeType,
+    getThemeColor: (state: { themeColor: string }) => state.themeColor,
   },
   // pinia 放弃了 mutations 只使用 actions
   actions: {

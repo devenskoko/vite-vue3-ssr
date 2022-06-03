@@ -9,8 +9,7 @@ const asyncRoutes: Array<RouteRecordRaw> = [
       title: "",
       icon: "",
     },
-    component: () =>
-      import(/* webpackChunkName: "home" */ "@/views/home/index.vue"),
+    component: () => import("@/views/home/HomePage.vue"),
   },
   {
     path: "/process",
@@ -19,10 +18,7 @@ const asyncRoutes: Array<RouteRecordRaw> = [
       title: "Template configuration process",
       icon: "",
     },
-    component: () =>
-      import(
-        /* webpackChunkName: "process" */ "@/views/example/MarkdownPage.vue"
-      ),
+    component: () => import("@/views/example/MarkdownPage.vue"),
   },
 ];
 

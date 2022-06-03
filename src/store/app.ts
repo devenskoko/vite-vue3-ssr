@@ -6,6 +6,7 @@ const useAppStore = defineStore({
   state: () => {
     return {
       locale: localStorage.locale || "zh-CN",
+      count: 0,
     };
   },
   // 等同于vuex的getter
@@ -17,6 +18,10 @@ const useAppStore = defineStore({
     // actions可以用async做成异步形式
     toggleLocale(type: string) {
       this.locale = type;
+      localStorage.locale = type;
+    },
+    changeCount(count: number) {
+      this.count = count;
     },
   },
 });

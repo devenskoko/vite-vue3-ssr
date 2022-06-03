@@ -7,13 +7,13 @@ export declare interface instanceObject {
  * @param data Json格式数据
  * */
 export const formatJsonToUrlParams = (data: instanceObject) => {
-  return typeof data === 'object'
+  return typeof data === "object"
     ? Object.keys(data)
         .map((key) => {
           return `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`;
         })
-        .join('&')
-    : '';
+        .join("&")
+    : "";
 };
 
 export default formatJsonToUrlParams;

@@ -16,18 +16,33 @@
         </template>
       </p>
     </div>
+    <n-button type="primary" @click="appStore.changeCount(++count)">
+      pinia ： {{ count }}
+    </n-button>
+    <n-button type="primary" @click="toggleLocales"> 切换语言 </n-button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useMessage } from "naive-ui";
+import { storeToRefs } from "pinia";
 import vitecamp from "@/assets/svg/vitecamp.svg?component";
+import { useAppStore } from "@/store/app";
 
 const message = useMessage();
-const { t } = useI18n();
+const { t, availableLocales, locale } = useI18n();
 message.info("I don't know why nobody told you how to unfold your love", {
   keepAliveOnHover: true,
 });
+
+const appStore = useAppStore();
+const { count } = storeToRefs(appStore);
+
+const toggleLocales = () => {
+  const locales = availableLocales;
+  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length];
+  appStore.toggleLocale(locale.value);
+};
 
 const featureList = [
   {

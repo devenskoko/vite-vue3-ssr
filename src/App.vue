@@ -4,7 +4,6 @@ import { useAppStore } from "@/store/app";
 
 const appStore = useAppStore();
 if (!localStorage.locale) {
-  localStorage.locale = "en";
   appStore.toggleLocale("en");
 }
 const locale = localStorage.locale === "en" ? enUS : eo;
