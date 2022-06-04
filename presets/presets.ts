@@ -16,11 +16,13 @@ import Prism from "markdown-it-prism";
 import ViteFonts from "vite-plugin-fonts";
 import LinkAttributes from "markdown-it-link-attributes";
 import { ConfigEnv } from "vite";
-
+import viteCompression from "vite-plugin-compression";
+import { visualizer } from "rollup-plugin-visualizer";
 const defaultClasses = "prose prose-sm m-auto text-left";
 
 export default (env: ConfigEnv) => {
   return [
+    viteCompression(),
     vue({
       include: [/\.vue$/, /\.md$/],
     }),
@@ -80,6 +82,12 @@ export default (env: ConfigEnv) => {
           },
         });
       },
+    }),
+    visualizer({
+      open: true,
+      filename: "report.html",
+      gzipSize: true,
+      template: "sunburst",
     }),
   ];
 };

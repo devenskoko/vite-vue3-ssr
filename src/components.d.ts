@@ -5,6 +5,10 @@
 declare module 'vue' {
   export interface GlobalComponents {
     EnProcess: typeof import('./components/EnProcess.md')['default']
+    NButton: typeof import('naive-ui')['NButton']
+    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NMessageProvider: typeof import('naive-ui')['NMessageProvider']
+    NResult: typeof import('naive-ui')['NResult']
     TheFooter: typeof import('./components/TheFooter.vue')['default']
     ZhProcess: typeof import('./components/ZhProcess.md')['default']
   }

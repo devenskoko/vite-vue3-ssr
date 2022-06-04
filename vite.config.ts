@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from "vite";
 import { resolve } from "path";
-import viteCompression from "vite-plugin-compression";
+
 import presets from "./presets/presets";
 // https://vitejs.dev/config/
 export default defineConfig((env) => {
@@ -10,7 +10,7 @@ export default defineConfig((env) => {
   return {
     base: viteEnv.VITE_BASE,
     // 插件
-    plugins: [presets(env), viteCompression()],
+    plugins: [presets(env)],
     // 别名设置
     resolve: {
       alias: {
@@ -42,9 +42,9 @@ export default defineConfig((env) => {
       // 静态资源打包到dist下的不同目录
       rollupOptions: {
         output: {
-          chunkFileNames: `static/js/[name]-[hash].js`,
-          entryFileNames: `static/js/[name]-[hash].js`,
-          assetFileNames: `static/[ext]/[name]-[hash].[ext]`,
+          chunkFileNames: "static/js/[name]-[hash].js",
+          entryFileNames: "static/js/[name]-[hash].js",
+          assetFileNames: "static/[ext]/[name]-[hash].[ext]",
         },
       },
     },
