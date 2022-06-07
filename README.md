@@ -1,6 +1,12 @@
 <br>
 
 <p align='center'>
+<a href="https://hellolsc.top/">Live Demo</a>
+</p>
+
+<br>
+
+<p align='center'>
 <b>English</b> | <a href="https://github.com/devenskoko/vite-vue3/blob/main/README.zh-CN.md">简体中文</a>
 </p>
 

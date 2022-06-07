@@ -1,7 +1,7 @@
 <br>
 
 <p align='center'>
-<a href="https://github.com/devenskoko/vite-vue3/blob/main/README.md">English</a> | <b>简体中文</b>
+<a href="https://hellolsc.top/">Live Demo</a>
 </p>
 
 <br>
