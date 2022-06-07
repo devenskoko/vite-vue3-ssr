@@ -17,7 +17,7 @@ import ViteFonts from "vite-plugin-fonts";
 import LinkAttributes from "markdown-it-link-attributes";
 import { ConfigEnv } from "vite";
 import viteCompression from "vite-plugin-compression";
-import { visualizer } from "rollup-plugin-visualizer";
+// import { visualizer } from "rollup-plugin-visualizer";
 const defaultClasses = "prose prose-sm m-auto text-left";
 
 export default (env: ConfigEnv) => {
@@ -60,8 +60,26 @@ export default (env: ConfigEnv) => {
       autoInstall: true,
     }),
     ViteFonts({
-      google: {
-        families: ["Open Sans", "Montserrat", "Fira Sans"],
+      custom: {
+        families: [
+          {
+            name: "Open Sans",
+            local: "Open Sans",
+            src: "src/assets/fonts/Open-Sans/*.woff2",
+          },
+          {
+            name: "Montserrat",
+            local: "Montserrat",
+            src: "src/assets/fonts/Montserrat/*.woff2",
+          },
+          {
+            name: "Fira Sans",
+            local: "Fira Sans",
+            src: "src/assets/fonts/Fira-Sans/*.woff2",
+          },
+        ],
+        display: "auto",
+        preload: true,
       },
     }),
     WindiCSS({

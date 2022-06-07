@@ -5,6 +5,7 @@ import router from "@/router/index";
 import store from "@/store";
 import App from "./App.vue";
 
+import "virtual:fonts.css";
 import "virtual:windi.css";
 // Devtools: https://windicss.org/integrations/vite.html#design-in-devtools
 import "virtual:windi-devtools";

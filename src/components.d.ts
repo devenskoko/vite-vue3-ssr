@@ -8,7 +8,6 @@ declare module 'vue' {
     NButton: typeof import('naive-ui')['NButton']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
-    NResult: typeof import('naive-ui')['NResult']
     TheFooter: typeof import('./components/TheFooter.vue')['default']
     ZhProcess: typeof import('./components/ZhProcess.md')['default']
   }
