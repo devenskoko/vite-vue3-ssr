@@ -83,11 +83,11 @@ export default (env: ConfigEnv) => {
         });
       },
     }),
-    visualizer({
-      open: true,
-      filename: "report.html",
-      gzipSize: true,
-      template: "sunburst",
-    }),
+    // visualizer({
+    //   open: true,
+    //   filename: "report.html",
+    //   gzipSize: true,
+    //   template: "sunburst",
+    // }),
   ];
 };
