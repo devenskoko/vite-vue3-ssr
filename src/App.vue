@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { enUS, dateEnUS, eo, dateEo, NDateLocale } from "naive-ui";
-import { onBeforeMount } from "vue";
+
 import { useAppStore } from "@/store/app";
 
 const appStore = useAppStore();
@@ -25,7 +25,11 @@ onBeforeMount(() => {
       preflight-style-disabled
     >
       <n-message-provider>
-        <router-view></router-view>
+        <router-view v-slot="{ Component }">
+          <Suspense>
+            <component :is="Component" />
+          </Suspense>
+        </router-view>
       </n-message-provider>
     </n-config-provider>
   </div>

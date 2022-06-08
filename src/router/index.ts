@@ -1,4 +1,9 @@
-import { createRouter, createMemoryHistory, RouteRecordRaw } from "vue-router";
+import {
+  createRouter,
+  createMemoryHistory,
+  createWebHistory,
+  RouteRecordRaw,
+} from "vue-router";
 // import NProgress from "nprogress";
 import exceptionRoutes from "@/router/route.exception";
 import asyncRoutes from "@/router/route.async";
@@ -15,10 +20,10 @@ const routes: Array<RouteRecordRaw> = [
 
 // eslint-disable-next-line func-names
 export default function () {
-  const router = createRouter({
-    history: createMemoryHistory(),
+  const routerHistory =
+    import.meta.env.SSR === false ? createWebHistory() : createMemoryHistory();
+  return createRouter({
+    history: routerHistory,
     routes,
   });
-
-  return router;
 }

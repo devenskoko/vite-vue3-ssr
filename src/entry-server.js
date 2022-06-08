@@ -2,7 +2,6 @@ import { createSSRApp } from "vue";
 import { renderToString } from "@vue/server-renderer";
 import { createPinia } from "pinia";
 import { createI18n } from "vue-i18n";
-import { setup } from "@css-render/vue3-ssr";
 import App from "./app.vue";
 import { isPromise } from "./utils";
 import createRouter from "@/router/index";
@@ -40,7 +39,6 @@ export async function render(url, manifest) {
   const router = createRouter();
   const store = createPinia();
   const app = createSSRApp(App);
-  const { collect } = setup(app);
 
   const i18n = createI18n({
     locale: "zh-CN",
@@ -53,7 +51,7 @@ export async function render(url, manifest) {
     await router.isReady();
     const to = router.currentRoute;
     const matchedRoute = to.value.matched;
-    if (to.value.matched.length === 0) {
+    if (matchedRoute.length === 0) {
       return "";
     }
     const matchedComponents = [];
@@ -79,8 +77,7 @@ export async function render(url, manifest) {
     const html = await renderToString(app, ctx);
     const preloadLinks = renderPreloadLinks(ctx.modules, manifest);
     const state = JSON.stringify(store.state.value);
-    const cssHtml = collect();
-    return [html, state, preloadLinks, cssHtml];
+    return [html, state, preloadLinks];
   } catch (error) {
     console.log(error);
   }

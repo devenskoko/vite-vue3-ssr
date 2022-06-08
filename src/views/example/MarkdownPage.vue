@@ -1,8 +1,7 @@
 <template>
-  <EnProcess v-if="locale === 'en'"></EnProcess>
-  <ZhProcess v-else></ZhProcess>
+  <div>
+    <h3>process</h3>
+  </div>
 </template>
 
-<script setup lang="ts">
-const { locale } = useI18n();
-</script>
+<script setup lang="ts"></script>
