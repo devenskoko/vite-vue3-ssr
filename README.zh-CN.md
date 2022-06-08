@@ -27,6 +27,10 @@
 
 ## 已配置
 
+## SSR
+
+- ssr 分支，已完成 SSR 构建
+
 ### UI 框架
 
 - [Windi CSS](https://github.com/windicss/windicss) (按需的 [TailwindCSS](https://tailwindcss.com/)) - 更轻，更快和和一系列额外的特性!

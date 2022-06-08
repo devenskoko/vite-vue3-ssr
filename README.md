@@ -33,6 +33,10 @@
 
 ## Pre-packed
 
+## SSR
+
+- SSR branch, SSR build completed
+
 ### UI Frameworks
 
 - [Windi CSS](https://github.com/windicss/windicss) (On-demand [TailwindCSS](https://tailwindcss.com/)) - lighter and faster, with a bunch of additional features
