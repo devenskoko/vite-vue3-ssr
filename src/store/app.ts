@@ -5,7 +5,7 @@ const useAppStore = defineStore({
   id: "app",
   state: () => {
     return {
-      locale: localStorage.locale || "zh-CN",
+      locale: "zh-CN",
       count: 0,
     };
   },

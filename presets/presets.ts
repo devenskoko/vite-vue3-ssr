@@ -11,21 +11,12 @@ import {
   VueUseComponentsResolver,
 } from "unplugin-vue-components/resolvers";
 import WindiCSS from "vite-plugin-windicss";
-import Markdown from "vite-plugin-md";
-import Prism from "markdown-it-prism";
 import ViteFonts from "vite-plugin-fonts";
-import LinkAttributes from "markdown-it-link-attributes";
-import { ConfigEnv } from "vite";
-import viteCompression from "vite-plugin-compression";
-import { visualizer } from "rollup-plugin-visualizer";
 const defaultClasses = "prose prose-sm m-auto text-left";
 
-export default (env: ConfigEnv) => {
+export default () => {
   return [
-    viteCompression(),
-    vue({
-      include: [/\.vue$/, /\.md$/],
-    }),
+    vue(),
     vueJsx(),
     svgLoader(),
     legacy({
@@ -41,7 +32,7 @@ export default (env: ConfigEnv) => {
         filepath: "./.eslintrc-auto-import.json", // Default `./.eslintrc-auto-import.json`
         globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
       },
-      resolvers: [NaiveUiResolver()],
+      resolvers: [],
     }),
     Components({
       dts: "./src/components.d.ts",
@@ -54,40 +45,37 @@ export default (env: ConfigEnv) => {
         IconsResolver(),
         VueUseComponentsResolver(),
       ],
+      directoryAsNamespace: true,
     }),
     Icons({
       compiler: "vue3",
       autoInstall: true,
     }),
     ViteFonts({
-      google: {
-        families: ["Open Sans", "Montserrat", "Fira Sans"],
+      custom: {
+        families: [
+          {
+            name: "Open Sans",
+            local: "Open Sans",
+            src: "src/assets/fonts/Open-Sans/*.woff2",
+          },
+          {
+            name: "Montserrat",
+            local: "Montserrat",
+            src: "src/assets/fonts/Montserrat/*.woff2",
+          },
+          {
+            name: "Fira Sans",
+            local: "Fira Sans",
+            src: "src/assets/fonts/Fira-Sans/*.woff2",
+          },
+        ],
+        display: "auto",
+        preload: true,
       },
     }),
     WindiCSS({
       safelist: defaultClasses,
     }),
-    Markdown({
-      wrapperClasses: defaultClasses,
-      headEnabled: false,
-      markdownItSetup(md) {
-        // https://prismjs.com/
-        md.use(Prism);
-        // 为 md 中的所有链接设置为 新页面跳转
-        md.use(LinkAttributes, {
-          matcher: (link: string) => /^https?:\/\//.test(link),
-          attrs: {
-            target: "_blank",
-            rel: "noopener",
-          },
-        });
-      },
-    }),
-    // visualizer({
-    //   open: true,
-    //   filename: "report.html",
-    //   gzipSize: true,
-    //   template: "sunburst",
-    // }),
   ];
 };

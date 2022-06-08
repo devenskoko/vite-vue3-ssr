@@ -1,13 +1,20 @@
 <script setup lang="ts">
-import { enUS, dateEnUS, eo, dateEo } from "naive-ui";
+import { enUS, dateEnUS, eo, dateEo, NDateLocale } from "naive-ui";
+import { onBeforeMount } from "vue";
 import { useAppStore } from "@/store/app";
 
 const appStore = useAppStore();
-if (!localStorage.locale) {
-  appStore.toggleLocale("en");
-}
-const locale = localStorage.locale === "en" ? enUS : eo;
-const dateLocale = localStorage.locale === "en" ? dateEnUS : dateEo;
+
+let locale: any;
+let dateLocale: NDateLocale;
+
+onBeforeMount(() => {
+  if (!localStorage.locale) {
+    appStore.toggleLocale("en");
+  }
+  locale = localStorage.locale === "en" ? enUS : eo;
+  dateLocale = localStorage.locale === "en" ? dateEnUS : dateEo;
+});
 </script>
 
 <template>

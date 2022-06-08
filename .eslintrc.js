@@ -21,7 +21,7 @@ module.exports = {
     "plugin:prettier/recommended", // 添加 prettier 插件
   ],
   parserOptions: {
-    ecmaVersion: "latest",
+    ecmaVersion: 2020,
     parser: "@typescript-eslint/parser",
     sourceType: "module",
   },
@@ -40,5 +40,18 @@ module.exports = {
         endOfLine: "auto",
       },
     ],
+    "no-var-requires": 0,
+    "no-return-await": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-angle-bracket-type-assertion": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-empty-function": 0,
+    "array-callback-return": 0,
+    "consistent-return": 0,
+    "no-return-assign": 0,
+    "no-underscore-dangle": 0,
+    "@typescript-eslint/no-underscore-dangle": 0,
+    "global-require": 0,
+    "@typescript-eslint/no-explicit-any": 0,
   },
 };

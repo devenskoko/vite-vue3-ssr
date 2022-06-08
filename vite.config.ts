@@ -1,16 +1,12 @@
-import { defineConfig, loadEnv } from "vite";
+import { UserConfig } from "vite";
 import { resolve } from "path";
 
 import presets from "./presets/presets";
-// https://vitejs.dev/config/
-export default defineConfig((env) => {
-  // env 环境变量
-  const viteEnv = loadEnv(env.mode, `.env.${env.mode}`);
 
-  return {
-    base: viteEnv.VITE_BASE,
+export default ({ command }) => {
+  const config: UserConfig = {
     // 插件
-    plugins: [presets(env)],
+    plugins: [presets()],
     // 别名设置
     resolve: {
       alias: {
@@ -19,45 +15,20 @@ export default defineConfig((env) => {
     },
     // 服务设置
     server: {
-      host: true, // host设置为true才可以使用network的形式，以ip访问项目
-      port: 8080, // 端口号
-      open: true, // 自动打开浏览器
-      cors: true, // 跨域设置允许
-      strictPort: true, // 如果端口已占用直接退出
-    },
-    build: {
-      minify: "terser",
-      brotliSize: false,
-      // 消除打包大小超过500kb警告
-      chunkSizeWarningLimit: 2000,
-      sourcemap: env.mode === "development",
-      // 在生产环境移除console.log
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-        },
-      },
-      assetsDir: "static/assets",
-      // 静态资源打包到dist下的不同目录
-      rollupOptions: {
-        output: {
-          chunkFileNames: "static/js/[name]-[hash].js",
-          entryFileNames: "static/js/[name]-[hash].js",
-          assetFileNames: "static/[ext]/[name]-[hash].[ext]",
-        },
-      },
+      port: 80, // 端口号
     },
     css: {
       preprocessorOptions: {
         // 全局引入了 scss 的文件
         scss: {
           additionalData: `
-          @import "@/assets/styles/variables.scss";
-        `,
+      @import "@/assets/styles/variables.scss";
+    `,
           javascriptEnabled: true,
         },
       },
     },
   };
-});
+
+  return config;
+};
