@@ -4,10 +4,21 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    DarkModeContainer: typeof import('./components/common/DarkModeContainer.vue')['default']
+    DarkModeSwitch: typeof import('./components/common/DarkModeSwitch.vue')['default']
     EnProcess: typeof import('./components/EnProcess.md')['default']
+    ExceptionBase: typeof import('./components/common/ExceptionBase.vue')['default']
+    HoverContainer: typeof import('./components/common/HoverContainer.vue')['default']
+    IconCustomVitecamp: typeof import('~icons/custom/vitecamp')['default']
+    NaiveProvider: typeof import('./components/common/NaiveProvider.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NDialogProvider: typeof import('naive-ui')['NDialogProvider']
+    NLoadingBarProvider: typeof import('naive-ui')['NLoadingBarProvider']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
+    NNotificationProvider: typeof import('naive-ui')['NNotificationProvider']
+    NoPermission: typeof import('./components/common/noPermission.vue')['default']
+    SystemLogo: typeof import('./components/common/SystemLogo.vue')['default']
     TheFooter: typeof import('./components/TheFooter.vue')['default']
     ZhProcess: typeof import('./components/ZhProcess.md')['default']
   }

@@ -2,7 +2,7 @@
   <div class="container max-w-3xl mx-auto mt-40">
     <div class="h-60 mb-8">
       <div class="w-52 h-52 mx-auto mb-4">
-        <vitecamp class="w-52 h-52"></vitecamp>
+        <icon-custom-vitecamp class="w-52 h-52"></icon-custom-vitecamp>
       </div>
     </div>
     <div class="text-center text-md">
@@ -26,16 +26,15 @@
 <script setup lang="ts">
 import { useMessage } from "naive-ui";
 import { storeToRefs } from "pinia";
-import vitecamp from "@/assets/svg/vitecamp.svg?component";
-import { useAppStore } from "@/store/app";
+import { useAppStore } from "@/store";
 
+const appStore = useAppStore();
 const message = useMessage();
 const { t, availableLocales, locale } = useI18n();
 message.info("I don't know why nobody told you how to unfold your love", {
   keepAliveOnHover: true,
 });
 
-const appStore = useAppStore();
 const { count } = storeToRefs(appStore);
 
 const toggleLocales = () => {

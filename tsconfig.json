@@ -9,17 +9,27 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
     "lib": ["esnext", "dom"],
-    "types": ["vite/client", "vite-svg-loader", "nprogress", "pinia"],
+    "types": [
+      "vite/client",
+      "node",
+      "vite-svg-loader",
+      "unplugin-icons/types/vue",
+      "naive-ui/volar",
+      "@iconify/json"
+    ],
     // baseUrl来告诉编译器到哪里去查找模块，所有非相对模块导入都会被当做相对于 baseUrl。
     "baseUrl": ".",
     // 非相对模块导入的路径映射配置
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "~/*": ["./*"]
     },
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   // 编译器默认排除的编译文件
-  "exclude": ["node_modules"]
+  "exclude": ["dist", "node_modules"]
 }

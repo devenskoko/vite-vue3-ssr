@@ -26,6 +26,20 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["vue", "@typescript-eslint", "import"],
+  overrides: [
+    {
+      files: ["*.vue"],
+      rules: {
+        "no-undef": "off",
+      },
+    },
+    {
+      files: ["*.html"],
+      rules: {
+        "vue/comment-directive": "off",
+      },
+    },
+  ],
   rules: {
     quotes: 0,
     "no-console": "off",
@@ -40,5 +54,20 @@ module.exports = {
         endOfLine: "auto",
       },
     ],
+    "import/prefer-default-export": "off",
+    "no-use-before-define": "off",
+    "vue/multi-word-component-names": [
+      "error",
+      {
+        ignores: ["index"],
+      },
+    ],
+    "no-shadow": "off",
+    "consistent-return": "off",
+    "no-plusplus": "off",
+    "no-continue": "off",
+    "prefer-destructuring": "off",
+    "no-param-reassign": "off",
+    "no-nested-ternary": "off",
   },
 };

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { enUS, dateEnUS, eo, dateEo } from "naive-ui";
-import { useAppStore } from "@/store/app";
+import { useAppStore } from "./store";
 
 const appStore = useAppStore();
 if (!localStorage.locale) {
@@ -15,11 +15,11 @@ const dateLocale = localStorage.locale === "en" ? dateEnUS : dateEo;
     <n-config-provider
       :locale="locale"
       :date-locale="dateLocale"
-      preflight-style-disabled
+      class="h-full font-serif"
     >
-      <n-message-provider>
-        <router-view></router-view>
-      </n-message-provider>
+      <naive-provider>
+        <router-view />
+      </naive-provider>
     </n-config-provider>
   </div>
 </template>

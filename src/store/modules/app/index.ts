@@ -1,9 +1,7 @@
 import { defineStore } from "pinia";
 
-const useAppStore = defineStore({
-  // 这里的id必须为唯一ID
-  id: "app",
-  state: () => {
+export const useAppStore = defineStore("app-store", {
+  state() {
     return {
       locale: localStorage.locale || "zh-CN",
       count: 0,
@@ -25,6 +23,3 @@ const useAppStore = defineStore({
     },
   },
 });
-
-// eslint-disable-next-line import/prefer-default-export
-export { useAppStore };
